@@ -92,7 +92,7 @@ function Label({ children, className = "" }) {
 /*  Layout                                                             */
 /* ------------------------------------------------------------------ */
 
-const LINKEDIN = "https://www.linkedin.com/in/eva-tsai-55a97a1b9/";
+const LINKEDIN = "https://www.linkedin.com/in/yi-meng-tsai";
 const EMAIL = "B00837570@essec.com";
 
 function Nav({ route }) {
@@ -176,7 +176,7 @@ function Footer() {
         <p>
           LinkedIn:{" "}
           <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:text-smoke hover:underline">
-            linkedin.com/in/eva-tsai-55a97a1b9
+            linkedin.com/in/yi-meng-tsai
           </a>
         </p>
         <p>Email: <span className="select-all">{EMAIL}</span></p>
