@@ -180,7 +180,7 @@ function Footer() {
           </a>
         </p>
         <p>Email: <span className="select-all">{EMAIL}</span></p>
-        <p>© 2026 Tsai, Yi-Meng</p>
+        <p>© 2026 Yi-Meng, Tsai</p>
       </div>
     </footer>
   );
@@ -224,7 +224,7 @@ function HomeCover() {
 
         {/* bottom-left statement */}
         <div className="mt-auto pb-20 md:ml-[16%] md:pb-28">
-          <p className="cover-shadow font-sans text-[10px] uppercase tracking-[0.18em] text-white/90 md:text-[11px]">Tsai, Yi-Meng</p>
+          <p className="cover-shadow font-sans text-[10px] uppercase tracking-[0.18em] text-white/90 md:text-[11px]">Yi-Meng, Tsai</p>
           <p className="cover-shadow mt-2 max-w-md font-serif text-2xl font-light leading-snug tracking-[0.02em] md:text-[1.75rem]">
             Reflections &amp; Unfolding Thoughts
           </p>
@@ -339,7 +339,7 @@ function About() {
     <>
       <section className="grid items-center gap-12 pt-14 md:grid-cols-[minmax(0,6fr)_minmax(0,5fr)] md:gap-20 md:pt-20">
         <div className="order-2 min-w-0 md:order-1">
-          <h1 className="font-serif text-6xl font-light italic leading-[1.02] tracking-tight text-smoke md:text-[5rem]">Tsai, Yi-Meng</h1>
+          <h1 className="font-serif text-6xl font-light italic leading-[1.02] tracking-tight text-smoke md:text-[5rem]">Yi-Meng, Tsai</h1>
           <p className="mt-6 font-sans text-lg font-light tracking-wide text-smoke/85">
             MSc in Marketing Management &amp; Digital Student @ ESSEC Asia-Pacific
           </p>
