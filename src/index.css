@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    margin: 0;
+    background-color: #fbf9f5;
+    /* faint linen warmth pooling at the edges, like light on paper */
+    background-image:
+      radial-gradient(60rem 40rem at 10% -10%, rgba(231, 214, 190, 0.35), transparent 60%),
+      radial-gradient(50rem 40rem at 110% 30%, rgba(196, 204, 178, 0.18), transparent 60%);
+    background-attachment: fixed;
+    color: #2c2c2c;
+    overflow-x: hidden;
+  }
+  :focus-visible {
+    outline: 1px solid #5f6a4e;
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  /* Film grain over the whole page */
+  .film-grain {
+    position: fixed;
+    inset: -10%;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.08;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.17 0 0 0 0 0.15 0 0 0 0 0.13 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation: grain 1.4s steps(6) infinite;
+  }
+
+  /* Diffused botanical "photographs" */
+  .bloom-art {
+    filter: blur(18px) saturate(0.92);
+    transform: scale(1.18);
+    transition: transform 1.6s cubic-bezier(0.2, 0.7, 0.2, 1), filter 1.6s ease;
+  }
+  .group:hover .bloom-art {
+    filter: blur(13px) saturate(1);
+    transform: scale(1.24) rotate(1.5deg);
+  }
+  .bloom::after {
+    /* warm light leak in the corner, as on expired film */
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(40% 50% at 92% 8%, rgba(255, 214, 170, 0.45), transparent 70%);
+    mix-blend-mode: screen;
+  }
+  .grain-local {
+    opacity: 0.35;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  }
+
+  /* Soft haze drifting behind the hero */
+  .hero-haze {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    width: min(38rem, 90vw);
+    height: 22rem;
+    translate: -50% -50%;
+    z-index: -1;
+    border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(214, 186, 160, 0.45), rgba(178, 190, 160, 0.25) 60%, transparent);
+    filter: blur(40px);
+    animation: drift 14s ease-in-out infinite alternate;
+  }
+
+  /* Ruled lines on the diary page */
+  .diary-lines {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent calc(2.2rem - 1px),
+      rgba(44, 44, 44, 0.09) calc(2.2rem - 1px),
+      rgba(44, 44, 44, 0.09) 2.2rem
+    );
+  }
+
+  /* Drop cap on the first paragraph of the lecture notes */
+  .dropcap::first-letter {
+    float: left;
+    margin: 0.35rem 0.6rem 0 0;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 4.2rem;
+    line-height: 0.8;
+    font-style: italic;
+    color: #5f6a4e;
+  }
+
+  /* watercolour brush washes on the About page */
+  .paint-wash {
+    background:
+      radial-gradient(45% 35% at 60% 30%, rgba(200, 178, 156, 0.35), transparent 70%),
+      radial-gradient(40% 40% at 40% 70%, rgba(170, 182, 160, 0.3), transparent 70%);
+    filter: blur(30px);
+    border-radius: 40% 60% 55% 45%;
+    transform: rotate(-12deg);
+  }
+  .paint-wash-2 {
+    background: radial-gradient(50% 50% at 50% 50%, rgba(214, 196, 176, 0.35), transparent 70%);
+    filter: blur(36px);
+    border-radius: 50%;
+  }
+
+  /* full-bleed home cover */
+  .cover {
+    height: clamp(540px, calc(100svh - 72px), 900px);
+  }
+  .cover-img {
+    animation: coverDrift 24s ease-in-out infinite alternate;
+  }
+  .cover-shadow {
+    text-shadow: 0 1px 18px rgba(44, 44, 44, 0.28);
+  }
+
+  .page-enter {
+    animation: fadeUp 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+}
+
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-2%, 1.5%); }
+  40% { transform: translate(1.5%, -2%); }
+  60% { transform: translate(-1%, -1%); }
+  80% { transform: translate(2%, 1%); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes coverDrift {
+  from { transform: scale(1.04) translate(0, 0); }
+  to { transform: scale(1.1) translate(-1.5%, 1%); }
+}
+@keyframes drift {
+  from { transform: translate(-6%, -4%) scale(1); }
+  to { transform: translate(6%, 4%) scale(1.08); }
+}
+@keyframes fadeUp {
+  from { opacity: 0.3; transform: translateY(10px); filter: blur(3px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .film-grain,
+  .hero-haze,
+  .page-enter,
+  .cover-img { animation: none; }
+  .bloom-art { transition: none; }
+}
