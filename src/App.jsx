@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import portrait from "./assets/portrait.jpg";
 import coverFlowers from "./assets/cover-flowers.jpg";
+import week05Cover from "./assets/week05-cover.svg";
+import week04Cover from "./assets/week04-cover.svg";
 import week02Cover from "./assets/week02-cover.jpg";
 import week02Workflow from "./assets/week02-workflow.png";
 import week02Classroom from "./assets/week02-classroom.jpg";
@@ -10,6 +12,52 @@ import week02Classroom from "./assets/week02-classroom.jpg";
 /* ------------------------------------------------------------------ */
 
 const POSTS = [
+  {
+    id: "week-05",
+    week: "05",
+    date: "2026.11.13",
+    title: "Marketing on LinkedIn in the Age of AI",
+    speakers: "Cindy Leong",
+    affiliation: "LinkedIn",
+    cover: { src: week05Cover, alt: "Soft beige and sage illustration of a small network of connected circles, under the words “Trusted, cited, chosen”" },
+    excerpt: "This week’s guest speaker was Cindy Leong from LinkedIn. Before the session, I mainly saw LinkedIn as a place to look for jobs. By the end, I understood it as one of the sources that shapes what AI tells people about brands.",
+    body: [
+      { p: "This week’s guest speaker was Cindy Leong from LinkedIn. Before the session, I mainly saw LinkedIn as a place to look for jobs and build a professional profile. By the end, I understood it as a full marketing ecosystem, and more importantly, as one of the sources that shapes what AI tells people about brands." },
+      { p: "Cindy began by describing LinkedIn’s three roles: helping the workforce grow, helping companies hire and learn, and helping businesses market and sell. She also stressed platform trust, noting that LinkedIn’s brand safety score is above 99%. For advertisers, this means their brand is unlikely to appear next to harmful or inappropriate content, which is a strong selling point compared with more open social platforms." },
+      { p: "The part that changed my thinking most was the B2B buying journey. I come from the beauty industry, where a consumer might see one video and buy a serum the same day. B2B is completely different. A purchase takes about 10 months on average and involves many stakeholders, and only around 5% of potential buyers are actively in the market at any given time. Surprisingly, 40–60% of deals are lost not to competitors but to indecision. Cindy explained that much of this comes from fear of making the wrong choice, which is why brands need to sell “buyability”: the feeling that choosing them is the safe decision." },
+      { p: "The data on “Day One” lists made this even clearer. 86% of buyers already have a shortlist in mind before they start searching, usually about three brands, and 81% end up buying from that list. In other words, brand building has to happen long before the buyer is ready. It also explains why word of mouth matters so much in B2B: a recommendation from a trusted peer makes a choice feel safer than any advertisement can." },
+      { p: "Another insight was the changing profile of the buyer. 73% of B2B buyers are now Millennials or Gen Z, and this share is still growing; the average buyer is around 39 years old. These buyers expect ungated content, video, and transparency about how AI is used. Cindy also showed that LinkedIn matters for B2C, because members share their career goals and aspirations there. This makes the platform valuable for luxury brands and for reaching investors and high-net-worth audiences." },
+      { p: "The brand strategy section focused on AI visibility. B2B buyers increasingly ask AI tools for recommendations. According to Cindy, LinkedIn is the second most cited domain in AI answers, ahead of Reddit and behind only YouTube, whose videos are automatically transcribed. For professional questions, she said LinkedIn is cited first. The key message was simple: if AI cannot find you, it cannot recommend you. AI tends to trust content that demonstrates E-E-A-T: experience, expertise, authoritativeness, and trustworthiness. In practice, posts are easier for AI to use when they have clear headings, name specific companies or tools, and include data. This gave real meaning to “AI visibility,” the new metric Professor Kalyayeva introduced in our first session." },
+      { p: "Finally, Cindy introduced ad formats that combine organic content with paid amplification. Her strongest recommendation was to encourage individuals, not just company pages, to post, and then support them with Thought Leader Ads. People are seen as more credible than brands, by both audiences and AI. She also pointed us to LinkedIn’s Marketing Academy for further learning." },
+    ],
+    reflection: [
+      "One thing I kept in mind is that most of these figures come from LinkedIn’s own research, so they naturally make a strong case for the platform. Before building a strategy around them, I would want to verify them independently, for example with a GEO check: asking several AI assistants the questions a buyer would ask and seeing which brands and sources they actually cite.",
+      "This is also directly useful for our final group project. Beyond brand-owned ads, we could include content from real people, such as experts or creators amplified through Thought Leader Ads or partnership ads, and test whether AI assistants recommend our brand.",
+      "My biggest takeaway is that marketing is no longer only about reaching people directly. It is also about being a trusted source that AI chooses to cite. With my background in CRM, I am used to thinking about how to keep customers once they know us. This session reminded me that the first challenge is getting onto their shortlist at all, and that in the AI era, a thoughtful post from a real expert may matter more than a polished brand advertisement.",
+    ],
+  },
+  {
+    id: "week-04",
+    week: "04",
+    date: "2026.10.30",
+    title: "Building an AI Marketing Team",
+    speakers: "Nick Goh",
+    affiliation: "Yellow Pages Singapore & INSPIRO Consulting",
+    cover: { src: week04Cover, alt: "Soft beige and sage illustration of five small circles linked in a chain around one filled circle marked “you”, under the words “Six roles, one human”" },
+    excerpt: "Nick Goh, CMO of Yellow Pages Singapore, showed how to build an entire marketing team out of AI, and why the most important role in it is still a person.",
+    body: [
+      { p: "This week’s speaker was Nick Goh, CMO of Yellow Pages Singapore and CEO of INSPIRO Consulting, who has led agency teams and worked with brands such as SAP and UOB. His topic sounded almost like science fiction: building an entire marketing team out of AI." },
+      { p: "He opened with three news headlines. Amazon is cutting jobs as investment shifts toward AI. WPP is folding Ogilvy, VML and AKQA into a single creative banner. Getty Images has filed for bankruptcy in the US. The message was clear: the traditional agency model is under pressure, and marketers need to understand how AI changes the way work gets done." },
+      { p: "Nick then showed how he split a marketing department into AI roles using Claude. The planning team has a Brief Writer, a Brief Validator that critiques the brief in a fresh chat, and a Strategist that develops the Big Idea. The production team has a Designer who creates key visuals through connected tools such as Higgsfield, a Copywriter who builds the messaging hierarchy and adapts it for each channel, and a Reviewer who checks everything against the brand voice. Each role is saved as a reusable skill inside one project that holds the brand guidelines and research. He even scheduled a daily task that reads a client’s brief from Gmail and drafts a first version automatically." },
+      { p: "What stood out to me was step four of the handoff chain: “You.” Before anything moves to production, a human approves the work and saves it to the knowledge base. The AI handles the volume, but the judgment stays with the marketer." },
+      { p: "To demonstrate, he ran a fictional case: the launch of a Louis Vuitton handbag called “Terra” in Singapore. The team went from brief to research, messaging and Instagram visuals, landing on the line “Nothing to explain.” One moment surprised the room. When Nick asked Claude to swap the model’s face for a real brand ambassador, it refused, explaining that it would create a realistic image of a real person who had never agreed to it. It was a useful reminder that speed does not remove the need for ethics, especially for brands that rely on trust." },
+      { p: "The final part was the Creative Score. Claude reviewed the campaign through the lenses of BBH, Ogilvy and McCann, and it was not gentle. The Instagram Story scored 5.7 out of 10 and the feed post only 4.3, criticised for a clichéd desert setting and repetitive frames. A revised visual, a close-up of a hand on the bag’s clasp, scored 6.7. Nick asked us what this told us." },
+    ],
+    reflection: [
+      "My answer: AI is useful not only as a producer but as a critic, and the real improvement still comes from a person who listens to the feedback and decides what to change.",
+      "Coming from the beauty industry, I have written many briefs and waited days for agency feedback. This session made me rethink my role. If AI can draft, design and even critique, the most valuable skills become defining the problem, setting the standard and making the final call. I do not see this as AI replacing marketers. I see it as marketers becoming the directors of a much faster team.",
+    ],
+  },
   {
     id: "week-02",
     week: "02",
